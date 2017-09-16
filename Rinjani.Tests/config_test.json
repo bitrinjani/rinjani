@@ -1,0 +1,39 @@
+﻿{
+	"DemoMode": "true",
+	"PriceMergeSize": "100",
+	"MaxSize": "0.02",
+	"MinSize": "0.01",
+	"MinTargetProfit": "1",
+	"IterationInterval": "3000",
+	"PositionRefreshInterval": "10000",
+	"SleepAfterSend": "30000",
+	"MaxNetExposure": "0.3",
+	"MaxRetryCount": "30",
+	"OrderStatusCheckInterval": "3000",
+	"Brokers": [
+		{
+			"Broker": "Coincheck",
+			"Enabled": "true",
+			"Key": "xxx",
+			"Secret": "xxxxxx",
+			"MaxLongPosition": "0.35",
+			"MaxShortPosition": "0"
+		},
+		{
+			"Broker": "Bitflyer",
+			"Enabled": "true",
+			"Key": "xxx",
+			"Secret": "xxxxxx",
+			"MaxLongPosition": "0.30",
+			"MaxShortPosition": "0"
+		},
+		{
+			"Broker": "Quoine",
+			"Enabled": "true",
+			"Key": "xxx",
+			"Secret": "xxxxxx",
+			"MaxLongPosition": "0.5",
+			"MaxShortPosition": "0.5"
+		}
+	]
+}

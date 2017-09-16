@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rinjani", "Rinjani\Rinjani.csproj", "{495C65FE-42E4-400D-94FC-A2A4AA1D0F03}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rinjani.Tests", "Rinjani.Tests\Rinjani.Tests.csproj", "{BC268B73-1FF2-472C-BF5F-081B4078670A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{495C65FE-42E4-400D-94FC-A2A4AA1D0F03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{495C65FE-42E4-400D-94FC-A2A4AA1D0F03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{495C65FE-42E4-400D-94FC-A2A4AA1D0F03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{495C65FE-42E4-400D-94FC-A2A4AA1D0F03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC268B73-1FF2-472C-BF5F-081B4078670A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC268B73-1FF2-472C-BF5F-081B4078670A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC268B73-1FF2-472C-BF5F-081B4078670A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC268B73-1FF2-472C-BF5F-081B4078670A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {14A74BA7-E38C-4F77-974A-CDFC032F56EE}
+	EndGlobalSection
+EndGlobal
