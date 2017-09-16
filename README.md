@@ -1,3 +1,5 @@
+[日本語はこちら](http://qiita.com/bitrinjani/items/3ed756da9baf7d171306)
+
 # Rinjani Bitcoin Arbitrager
 
 Rinjani Bitcoin Arbitrager is a Proof-Of-Concept prototype of an automatic arbitrage trading system targeting Bitcoin exchanges operated in Japan.
