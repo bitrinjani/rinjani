@@ -73,7 +73,7 @@ To run unsafe tests against real exchange API, comment out Ignore attributes in 
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
 ## Inspirations
 [Blackbird](https://github.com/butor/blackbird), which targets US exchanges. 
