@@ -70,10 +70,12 @@ For Bitflyer, _CashMarginType_ must be Cash. Although the broker provides levera
 ### Log files
 All log files are saved under _logs_ directory. To configure logging, edit _nlog.conf_.
 
-- Rinjani.log: Standard log file
-- Rinjani_debug.log: Verbose logging, including all REST HTTP requests and responses in JSON format
-- Rinjani_arbitrager.log: Arbitrage activity log
-- Rinjani_position.log: BTC position log
+|File name|Description|
+|---------|-----------|
+|Rinjani.log|Standard log file|
+|Rinjani_debug.log|Verbose logging, including all REST HTTP requests and responses in JSON format|
+|Rinjani_arbitrager.log|Arbitrage activity log|
+|Rinjani_position.log|BTC position log|
 
 ## Running the tests
 
