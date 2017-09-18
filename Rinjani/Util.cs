@@ -11,6 +11,13 @@ namespace Rinjani
 {
     public static class Util
     {
+        public static IList<IBrokerAdapter> GetEnabledBrokerAdapters(IList<IBrokerAdapter> brokerAdapters,
+            IConfigStore configStore)
+        {
+            var enabledBrokers = configStore.Config.Brokers.Where(b => b.Enabled).Select(b => b.Broker).ToList();
+            return brokerAdapters.Where(b => enabledBrokers.Contains(b.Broker)).ToList();
+        }
+
         public static string Nonce => Convert.ToString(DateTime.UtcNow.ToUnixMs());
 
         public static DateTime IsoDateTimeToLocal(string isoTime)

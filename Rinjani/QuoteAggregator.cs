@@ -17,8 +17,12 @@ namespace Rinjani
 
         public QuoteAggregator(IConfigStore configStore, IList<IBrokerAdapter> brokerAdapters, ITimer timer)
         {
+            if (brokerAdapters == null)
+            {
+                throw new ArgumentNullException(nameof(brokerAdapters));
+            }
             _config = configStore?.Config ?? throw new ArgumentNullException(nameof(configStore));
-            _brokerAdapters = brokerAdapters ?? throw new ArgumentNullException(nameof(brokerAdapters));
+            _brokerAdapters = Util.GetEnabledBrokerAdapters(brokerAdapters, configStore);
             _timer = timer;
             Util.StartTimer(timer, _config.QuoteRefreshInterval, OnTimerTriggered);
             Aggregate();
