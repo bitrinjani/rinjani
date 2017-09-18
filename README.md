@@ -1,3 +1,5 @@
+[日本語はこちら](http://qiita.com/bitrinjani/items/3ed756da9baf7d171306)
+
 # Rinjani Bitcoin Arbitrager
 
 Rinjani Bitcoin Arbitrager is a Proof-Of-Concept prototype of an automatic arbitrage trading system targeting Bitcoin exchanges operated in Japan.
@@ -65,6 +67,16 @@ All configurations are stored in _config.json_.
 
 For Bitflyer, _CashMarginType_ must be Cash. Although the broker provides leverage trading as BTC-FX, the price range is totally different from BTCJPY. BTC-FX is not applicable to arbitrage. 
 
+### Log files
+All log files are saved under _logs_ directory. To configure logging, edit _nlog.conf_.
+
+|File name|Description|
+|---------|-----------|
+|Rinjani.log|Standard log file|
+|Rinjani_debug.log|Verbose logging, including all REST HTTP requests and responses in JSON format|
+|Rinjani_arbitrager.log|Arbitrage activity log|
+|Rinjani_position.log|BTC position log|
+
 ## Running the tests
 
 Run unit tests under Rinjani.Tests project. The unit tests are safely executed with mocks, not against real exchange API.
@@ -73,7 +85,7 @@ To run unsafe tests against real exchange API, comment out Ignore attributes in 
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
 ## Inspirations
 [Blackbird](https://github.com/butor/blackbird), which targets US exchanges. 
