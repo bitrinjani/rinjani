@@ -43,6 +43,7 @@ namespace Rinjani
             var allowedShortSize = positionMap[bestBid.Broker].AllowedShortSize;
             var allowedLongSize = positionMap[bestAsk.Broker].AllowedLongSize;
             var targetVolume = new[] {availableVolume, config.MaxSize, allowedShortSize, allowedLongSize}.Min();
+            targetVolume = Util.RoundDown(targetVolume, 2);
             var targetProfit = Math.Round(invertedSpread * targetVolume);
 
             return new SpreadAnalysisResult
