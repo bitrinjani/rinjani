@@ -61,7 +61,7 @@ All configurations are stored in _config.json_.
 |Secret|string|BrokerAPI Secret|
 |MaxLongPosition|decimal|Maximum long position allowed for the broker.|
 |MaxShortPosition|decimal|Maximum short position allowed for the broker|
-|CashMarginType|Cash, MarginOpen, MarginClose, NetOut|Arbitrage order type|
+|CashMarginType|Cash, MarginOpen, MarginClose, NetOut|Arbitrage order type. Currently, this option is not fully supported. Please do not change from the default values.|
 
 ### Limitations
 
