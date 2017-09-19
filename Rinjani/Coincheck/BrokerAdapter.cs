@@ -154,7 +154,7 @@ namespace Rinjani.Coincheck
             {
                 ExecTime = Util.IsoDateTimeToLocal(x.created_at),
                 Price = x.rate,
-                Size = x.funds.btc
+                Size = Math.Abs(x.funds.btc)
             }).ToList();
             order.FilledSize = order.Executions.Sum(x => x.Size);
             order.Status = order.FilledSize == order.Size ? OrderStatus.Filled : OrderStatus.Canceled;
