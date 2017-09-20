@@ -1,3 +1,4 @@
+// Please rename config_default.json to config.json
 {
 	"DemoMode": "true",
 	"PriceMergeSize": "100",
