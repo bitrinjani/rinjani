@@ -64,6 +64,7 @@
     <Compile Include="JsonConfigStoreTest.cs" />
     <Compile Include="SpreadAnalyzerTests.cs" />
     <Compile Include="BrokerApiTest.cs" />
+    <Compile Include="QuoineBrokerAdapterTest.cs" />
     <Compile Include="UtilTest.cs" />
   </ItemGroup>
   <ItemGroup>
