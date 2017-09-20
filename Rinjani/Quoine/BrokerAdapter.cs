@@ -23,6 +23,10 @@ namespace Rinjani.Quoine
             _config = configStore.Config.Brokers.First(b => b.Broker == Broker);
             _restClient = restClient ?? throw new ArgumentNullException(nameof(restClient));
             _restClient.BaseUrl = new Uri(ApiRoot);
+            if (_config.CashMarginType == CashMarginType.Cash)
+            {
+                throw new NotSupportedException("CashMarginType must be NetOut, MarginOpen or MarginClose for Quoine.");
+            }
         }
 
         public Broker Broker => Broker.Quoine;

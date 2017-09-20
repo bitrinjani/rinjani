@@ -21,6 +21,11 @@ namespace Rinjani.Bitflyer
                 throw new ArgumentNullException(nameof(configStore));
             }
             _config = configStore.Config.Brokers.First(b => b.Broker == Broker);
+            if (_config.CashMarginType != CashMarginType.Cash)
+            {
+                throw new NotSupportedException("CashMarginType must be Cash for Bitflyer.");
+            }
+
             _restClient = restClient ?? throw new ArgumentNullException(nameof(restClient));
             _restClient.BaseUrl = new Uri(ApiRoot);
         }

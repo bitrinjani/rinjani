@@ -28,6 +28,10 @@ namespace Rinjani.Coincheck
 
         public decimal GetBtcPosition()
         {
+            if (_config.CashMarginType == CashMarginType.Cash)
+            {
+                return GetBalnce().Btc;
+            }
             var positions = GetLeverageOpenPositions();
             var longPosition = positions.Where(p => p.Side == OrderSide.Buy).Sum(p => p.Size);
             var shortPosition = positions.Where(p => p.Side == OrderSide.Sell).Sum(p => p.Size);
@@ -132,7 +136,7 @@ namespace Rinjani.Coincheck
                     throw new InvalidOperationException("Unexpected reply returned.");
                 }
 
-                order.FilledSize = order.Size - (decimal) brokerOrder.pending_amount;
+                order.FilledSize = order.Size - (decimal)brokerOrder.pending_amount;
                 if (order.FilledSize > 0)
                 {
                     order.Status = OrderStatus.PartiallyFilled;
@@ -293,6 +297,13 @@ namespace Rinjani.Coincheck
                 Size = record.amount
             }).ToList();
             return leveragePositions;
+        }
+
+        private BalanceReply GetBalnce()
+        {
+            var path = "/api/accounts/balance";
+            var req = BuildRequest(path);
+            return RestUtil.ExecuteRequest<BalanceReply>(_restClient, req);
         }
 
         private RestRequest BuildRequest(string path, string method = "GET", string body = "")
