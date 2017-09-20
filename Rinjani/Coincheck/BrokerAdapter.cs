@@ -30,7 +30,7 @@ namespace Rinjani.Coincheck
         {
             if (_config.CashMarginType == CashMarginType.Cash)
             {
-                return GetBalnce().Btc;
+                return GetBalance().Btc;
             }
             var positions = GetLeverageOpenPositions();
             var longPosition = positions.Where(p => p.Side == OrderSide.Buy).Sum(p => p.Size);
@@ -299,7 +299,7 @@ namespace Rinjani.Coincheck
             return leveragePositions;
         }
 
-        private BalanceReply GetBalnce()
+        private BalanceReply GetBalance()
         {
             var path = "/api/accounts/balance";
             var req = BuildRequest(path);
