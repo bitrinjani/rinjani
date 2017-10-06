@@ -146,7 +146,7 @@ namespace Rinjani.Coincheck
                 return;
             }
 
-            var searchAfter = order.CreationTime;
+            var searchAfter = order.CreationTime.AddMinutes(-1);
             var transactions = GetTransactions(searchAfter).Where(x => x.order_id == order.BrokerOrderId).ToList();
             if (transactions.Count == 0)
             {
