@@ -22,6 +22,7 @@ namespace Rinjani
             Kernel.Bind<IBrokerAdapter>().To<Quoine.BrokerAdapter>();
             Kernel.Bind<IRestClient>().To<RestClient>();
             Kernel.Bind<ITimer>().To<TimerAdapter>();
+            Kernel.Bind<IConfigValidator>().To<ConfigValidator>();
         }
     }
 

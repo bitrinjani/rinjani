@@ -89,8 +89,10 @@
     <Compile Include="Coincheck\LeveragePositionReply.cs" />
     <Compile Include="Coincheck\OrderType.cs" />
     <Compile Include="Coincheck\Depth.cs" />
+    <Compile Include="ConfigValidator.cs" />
     <Compile Include="CoreModule.cs" />
     <Compile Include="Execution.cs" />
+    <Compile Include="IConfigValidator.cs" />
     <Compile Include="Interface\IBrokerAdapter.cs" />
     <Compile Include="Interface\IBrokerAdapterRouter.cs" />
     <Compile Include="Interface\ISpreadAnalyzer.cs" />
