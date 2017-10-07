@@ -98,7 +98,6 @@
     <Compile Include="JsonConfigStore.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="OrderSide.cs" />
-    <Compile Include="OrderState.cs" />
     <Compile Include="Broker.cs" />
     <Compile Include="BrokerPosition.cs" />
     <Compile Include="Coincheck\BalanceReply.cs" />
