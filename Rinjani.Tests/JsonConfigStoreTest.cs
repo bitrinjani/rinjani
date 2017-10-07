@@ -1,4 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace Rinjani.Tests
 {
@@ -8,7 +10,7 @@ namespace Rinjani.Tests
         [TestMethod]
         public void JsonConfigStoreConfigTest()
         {
-            var store = new JsonConfigStore("config_test.json");
+            var store = new JsonConfigStore("config_test.json", new List<IConfigValidator>());
             var config = store.Config;
             Assert.AreEqual(true, config.DemoMode);
             Assert.AreEqual(100, config.PriceMergeSize);

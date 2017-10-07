@@ -43,7 +43,7 @@ namespace Rinjani.Tests
 
         private static void SendRefreshCancelAssert(Broker broker)
         {
-            var configStore = new JsonConfigStore(ConfigPath);
+            var configStore = new JsonConfigStore(ConfigPath, new List<IConfigValidator>());
             var brokerConfig = configStore.Config.Brokers.First(x => x.Broker == broker);
             var router = new BrokerAdapterRouter(new List<IBrokerAdapter>
             {
@@ -105,7 +105,7 @@ namespace Rinjani.Tests
         public void CoincheckGetBtcPositionTest()
         {
             var broker = Broker.Coincheck;
-            var configStore = new JsonConfigStore(ConfigPath);
+            var configStore = new JsonConfigStore(ConfigPath, new List<IConfigValidator>());
             var brokerConfig = configStore.Config.Brokers.First(x => x.Broker == broker);
             var dic = new Dictionary<CashMarginType, decimal>();
             foreach (CashMarginType cashMarginEnum in Enum.GetValues(typeof(CashMarginType)))
@@ -126,7 +126,7 @@ namespace Rinjani.Tests
         public void BitflyerGetBtcPositionTest()
         {
             var broker = Broker.Bitflyer;
-            var configStore = new JsonConfigStore(ConfigPath);
+            var configStore = new JsonConfigStore(ConfigPath, new List<IConfigValidator>());
             var brokerConfig = configStore.Config.Brokers.First(x => x.Broker == broker);
             brokerConfig.CashMarginType = CashMarginType.Cash;
             var ba = new Bitflyer.BrokerAdapter(new RestClient(), configStore);
@@ -140,7 +140,7 @@ namespace Rinjani.Tests
         public void BitflyerGetBtcPositionTest2()
         {
             var broker = Broker.Bitflyer;
-            var configStore = new JsonConfigStore(ConfigPath);
+            var configStore = new JsonConfigStore(ConfigPath, new List<IConfigValidator>());
             var brokerConfig = configStore.Config.Brokers.First(x => x.Broker == broker);
             brokerConfig.CashMarginType = CashMarginType.MarginOpen;
             var ba = new Bitflyer.BrokerAdapter(new RestClient(), configStore);
@@ -153,7 +153,7 @@ namespace Rinjani.Tests
         public void QuoineGetBtcPositionTest()
         {
             var broker = Broker.Quoine;
-            var configStore = new JsonConfigStore(ConfigPath);
+            var configStore = new JsonConfigStore(ConfigPath, new List<IConfigValidator>());
             var brokerConfig = configStore.Config.Brokers.First(x => x.Broker == broker);
             var dic = new Dictionary<CashMarginType, decimal>();
             foreach (CashMarginType cashMarginEnum in Enum.GetValues(typeof(CashMarginType)))
@@ -178,7 +178,7 @@ namespace Rinjani.Tests
         public void QuoineGetBtcPositionTest2()
         {
             var broker = Broker.Quoine;
-            var configStore = new JsonConfigStore(ConfigPath);
+            var configStore = new JsonConfigStore(ConfigPath, new List<IConfigValidator>());
             var brokerConfig = configStore.Config.Brokers.First(x => x.Broker == broker);
             brokerConfig.CashMarginType = CashMarginType.Cash;
             var ba = new Quoine.BrokerAdapter(new RestClient(), configStore);

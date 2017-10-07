@@ -7,7 +7,7 @@ namespace Rinjani
 {
     public class JsonConfigStore : IConfigStore
     {
-        public JsonConfigStore(string path, IList<ConfigValidator> configValidators)
+        public JsonConfigStore(string path, IList<IConfigValidator> configValidators)
         {
             var s = File.ReadAllText(path);
             Config = JsonConvert.DeserializeObject<ConfigRoot>(s);
