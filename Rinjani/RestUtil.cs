@@ -49,16 +49,18 @@ namespace Rinjani
 
         public static void CheckError(IRestResponse response)
         {
-            Log.Debug($"{response.StatusCode}, {response.Content}, {response.ErrorMessage}");
+            var logText = $"Response from {response.Request.Resource}\n" +
+                $"Status Code: {response.StatusCode}, Content:{response.Content}, ErrorMessage: {response.ErrorMessage}";
+            Log.Debug(logText);
             if (response.ErrorException != null)
             {
-                Log.Error(response.ErrorException);
+                Log.Error(logText);
+                Log.Debug(response.ErrorException);
                 throw response.ErrorException;
             }
             if (response.StatusCode != HttpStatusCode.OK)
             {
-                Log.Error(response.StatusCode);
-                Log.Error(response.Content);
+                Log.Error(logText);
                 throw new InvalidOperationException(response.Content);
             }
         }

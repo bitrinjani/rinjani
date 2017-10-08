@@ -61,6 +61,15 @@ namespace Rinjani.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Arbitrager thread has been stopped. Please hit Enter to close this window..
+        /// </summary>
+        public static string ArbitragerThreadHasBeenStopped {
+            get {
+                return ResourceManager.GetString("ArbitragerThreadHasBeenStopped", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to At least two brokers must be enabled..
         /// </summary>
         public static string AtLeastTwoBrokersMustBeEnabled {
@@ -295,7 +304,7 @@ namespace Rinjani.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &gt;&gt;Sleeping {0} after send..
+        ///   Looks up a localized string similar to &gt;&gt;Sleeping {0} ms after send..
         /// </summary>
         public static string SleepingAfterSend {
             get {

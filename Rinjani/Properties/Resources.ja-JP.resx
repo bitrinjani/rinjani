@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ArbitragerThreadHasBeenStopped" xml:space="preserve">
+    <value>裁定取引スレッドは停止しました。エンターキーを押すとこのウインドウは閉じます。</value>
+  </data>
   <data name="AtLeastTwoBrokersMustBeEnabled" xml:space="preserve">
     <value>少なくとも2つの取引所を有効にする必要があります。</value>
   </data>
@@ -196,7 +199,7 @@
     <value>売り試行許可</value>
   </data>
   <data name="SleepingAfterSend" xml:space="preserve">
-    <value>&gt;&gt;{0}間スリープ中... (SleepAfterSend設定)</value>
+    <value>&gt;&gt;{0} ms スリープ中... (SleepAfterSend設定)</value>
   </data>
   <data name="Spread" xml:space="preserve">
     <value>スプレッド　</value>

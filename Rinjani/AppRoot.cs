@@ -31,6 +31,10 @@ namespace Rinjani
             catch (Exception ex)
             {
                 Log.Fatal(ex);
+                if (Environment.UserInteractive)
+                {
+                    Console.ReadLine();
+                }
                 throw;
             }
         }

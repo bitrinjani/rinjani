@@ -195,6 +195,12 @@ namespace Rinjani
             {
                 Log.Error(ex.Message);
                 Log.Debug(ex);
+                if (Environment.UserInteractive)
+                {
+                    Log.Error(Resources.ArbitragerThreadHasBeenStopped);
+                    _positionService.Dispose();
+                    Console.ReadLine();
+                }
                 Environment.Exit(-1);
             }
         }
