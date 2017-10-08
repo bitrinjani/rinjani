@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AtLeastTwoBrokersMustBeEnabled" xml:space="preserve">
+    <value>At least two brokers must be enabled.</value>
+  </data>
+  <data name="AvailableVolume" xml:space="preserve">
+    <value>Available volume</value>
+  </data>
+  <data name="AvailableVolumeIsSmallerThanMinSize" xml:space="preserve">
+    <value>Available volume is smaller than min size.</value>
+  </data>
+  <data name="BestAsk" xml:space="preserve">
+    <value>Best ask</value>
+  </data>
+  <data name="BestBid" xml:space="preserve">
+    <value>Best bid</value>
+  </data>
+  <data name="BothLegsAreSuccessfullyFilled" xml:space="preserve">
+    <value>&gt;&gt;Both legs are successfully filled.</value>
+  </data>
+  <data name="BuyFillPriceIs" xml:space="preserve">
+    <value>&gt;&gt;Buy fill price is {0}.</value>
+  </data>
+  <data name="BuyLegIsNotFilledYetPendingSizeIs" xml:space="preserve">
+    <value>&gt;&gt;Buy leg is not filled yet. Pending size is {0}.</value>
+  </data>
+  <data name="CheckingIfBothLegsAreDoneOrNot" xml:space="preserve">
+    <value>&gt;&gt;Checking if both legs are done or not...</value>
+  </data>
+  <data name="ExpectedProfit" xml:space="preserve">
+    <value>Expected profit</value>
+  </data>
+  <data name="FailedToGetASpreadAnalysisResult" xml:space="preserve">
+    <value>Failed to get a spread analysis result. {0}</value>
+  </data>
+  <data name="FoundArbitrageOppotunity" xml:space="preserve">
+    <value>&gt;&gt;Found arbitrage oppotunity.</value>
+  </data>
+  <data name="FoundInvertedQuotes" xml:space="preserve">
+    <value>Found inverted quotes.</value>
+  </data>
+  <data name="LongAllowed" xml:space="preserve">
+    <value>LongAllowed</value>
+  </data>
+  <data name="LookingForOpportunity" xml:space="preserve">
+    <value>Looking for opportunity...</value>
+  </data>
+  <data name="MaxRetryCountReachedCancellingThePendingOrders" xml:space="preserve">
+    <value>Max retry count reached. Cancelling the pending orders.</value>
+  </data>
+  <data name="NetExposureIsLargerThanMaxNetExposure" xml:space="preserve">
+    <value>Net exposure is larger than max net exposure.</value>
+  </data>
+  <data name="NoArbitrageOpportunitySpreadIsNotInverted" xml:space="preserve">
+    <value>No arbitrage opportunity. Spread is not inverted.</value>
+  </data>
+  <data name="NoBestAskWasFound" xml:space="preserve">
+    <value>No best ask was found.</value>
+  </data>
+  <data name="NoBestBidWasFound" xml:space="preserve">
+    <value>No best bid was found.</value>
+  </data>
+  <data name="OrderCheckAttempt" xml:space="preserve">
+    <value>&gt;&gt;Order check attempt {0}.</value>
+  </data>
+  <data name="ProfitIs" xml:space="preserve">
+    <value>&gt;&gt;Profit is {0}.</value>
+  </data>
+  <data name="SellFillPriceIs" xml:space="preserve">
+    <value>&gt;&gt;Sell fill price is {0}.</value>
+  </data>
+  <data name="SellLegIsNotFilledYetPendingSizeIs" xml:space="preserve">
+    <value>&gt;&gt;Sell leg is not filled yet. Pending size is {0}.</value>
+  </data>
+  <data name="SendingOrderTargettingQuote" xml:space="preserve">
+    <value>&gt;&gt;Sending order targetting quote {0}...</value>
+  </data>
+  <data name="ShortAllowed" xml:space="preserve">
+    <value>ShortAllowed</value>
+  </data>
+  <data name="SleepingAfterSend" xml:space="preserve">
+    <value>&gt;&gt;Sleeping {0} after send.</value>
+  </data>
+  <data name="Spread" xml:space="preserve">
+    <value>Spread</value>
+  </data>
+  <data name="StartedArbitrager" xml:space="preserve">
+    <value>Started {0}.</value>
+  </data>
+  <data name="StartingArbitrager" xml:space="preserve">
+    <value>Starting {0}...</value>
+  </data>
+  <data name="StartingTheService" xml:space="preserve">
+    <value>Starting the service...</value>
+  </data>
+  <data name="StoppingTheService" xml:space="preserve">
+    <value>Stopping the service...</value>
+  </data>
+  <data name="SuccessfullyStartedTheService" xml:space="preserve">
+    <value>Successfully started the service.</value>
+  </data>
+  <data name="SuccessfullyStoppedTheService" xml:space="preserve">
+    <value>Successfully stopped the service.</value>
+  </data>
+  <data name="TargetProfitIsSmallerThanMinProfit" xml:space="preserve">
+    <value>Target profit is smaller than min profit.</value>
+  </data>
+  <data name="TargetVolume" xml:space="preserve">
+    <value>Target volume</value>
+  </data>
+  <data name="ThisIsDemoModeNotSendingOrders" xml:space="preserve">
+    <value>&gt;&gt;This is Demo mode. Not sending orders.</value>
+  </data>
+</root>

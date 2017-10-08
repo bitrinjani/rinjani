@@ -1,4 +1,6 @@
-﻿namespace Rinjani
+﻿using Rinjani.Properties;
+
+namespace Rinjani
 {
     public class BrokerPosition
     {
@@ -12,7 +14,7 @@
         public override string ToString()
         {
             return
-                $"{Broker.ToString(),10}: {Btc,5:0.00} BTC, LongAllowed: {LongAllowed,5}, ShortAllowed: {ShortAllowed,5}";
+                $"{Broker.ToString(),10}: {Btc,5:0.00} BTC, {Resources.LongAllowed}: {LongAllowed,5}, {Resources.ShortAllowed}: {ShortAllowed,5}";
         }
     }
 }

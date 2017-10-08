@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Rinjani.Properties;
+using System;
 using System.Linq;
 
 namespace Rinjani
@@ -7,7 +8,7 @@ namespace Rinjani
     {
         public void Validate(ConfigRoot config)
         {
-            ThrowIf(config.Brokers.Count < 2, "At least two brokers must be enabled.");
+            ThrowIf(config.Brokers.Count < 2, Resources.AtLeastTwoBrokersMustBeEnabled);
             MustBePositive(config.IterationInterval, nameof(config.IterationInterval));
             MustBePositive(config.MaxNetExposure, nameof(config.MaxNetExposure));
             MustBePositive(config.MaxRetryCount, nameof(config.MaxRetryCount));

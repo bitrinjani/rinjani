@@ -1,6 +1,9 @@
 ﻿using System;
 using Ninject;
 using NLog;
+using System.Configuration;
+using System.Globalization;
+using Rinjani.Properties;
 
 namespace Rinjani
 {
@@ -14,11 +17,16 @@ namespace Rinjani
         {
             try
             {
-                Log.Info("Starting the service...");
+                var culture = ConfigurationManager.AppSettings["Culture"];
+                if (culture != null)
+                {
+                    CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo(culture);
+                }
+                Log.Info(Resources.StartingTheService);
                 _kernel = NinjectConfig.Kernel;
                 _arbitrager = _kernel.Get<IArbitrager>();
                 _arbitrager.Start();
-                Log.Info("Successfully started the service.");
+                Log.Info(Resources.SuccessfullyStartedTheService);
             }
             catch (Exception ex)
             {
@@ -31,10 +39,10 @@ namespace Rinjani
         {
             try
             {
-                Log.Info("Stopping the service...");
+                Log.Info(Resources.StoppingTheService);
                 _arbitrager?.Dispose();
                 _kernel?.Dispose();
-                Log.Info("Successfully stopped the service.");
+                Log.Info(Resources.SuccessfullyStoppedTheService);
             }
             catch (Exception ex)
             {

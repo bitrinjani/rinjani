@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using NLog;
+using Rinjani.Properties;
 
 namespace Rinjani
 {
@@ -33,9 +34,13 @@ namespace Rinjani
             var bestAsk = quotes.Where(q => q.Side == QuoteSide.Ask)
                 .Where(q => IsAllowed(q, positionMap[q.Broker]))
                 .OrderBy(q => q.Price).FirstOrDefault();
-            if (bestBid == null || bestAsk == null)
+            if (bestBid == null)
             {
-                throw new InvalidOperationException("No best bid/ask was found.");
+                throw new InvalidOperationException(Resources.NoBestBidWasFound);
+            }
+            else if (bestAsk == null)
+            {
+                throw new InvalidOperationException(Resources.NoBestAskWasFound);
             }
 
             var invertedSpread = bestBid.Price - bestAsk.Price;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using NLog;
 using static System.Threading.Thread;
+using Rinjani.Properties;
 
 namespace Rinjani
 {
@@ -31,9 +32,9 @@ namespace Rinjani
 
         public void Start()
         {
-            Log.Info($"Starting {nameof(Arbitrager)}...");
+            Log.Info(Resources.StartingArbitrager, nameof(Arbitrager));
             _quoteAggregator.QuoteUpdated += QuoteUpdated;
-            Log.Info($"Started {nameof(Arbitrager)}.");
+            Log.Info(Resources.StartedArbitrager, nameof(Arbitrager));
         }
 
         public void Dispose()
@@ -44,7 +45,7 @@ namespace Rinjani
 
         private void Arbitrage()
         {
-            Log.Info("Looking for opportunity...");
+            Log.Info(Resources.LookingForOpportunity);
             var config = _configStore.Config;
             CheckMaxNetExposure();
             SpreadAnalysisResult result;
@@ -54,7 +55,7 @@ namespace Rinjani
             }
             catch (Exception ex)
             {
-                Log.Warn($"Failed to get a spread analysis result. {ex.Message}");
+                Log.Warn(Resources.FailedToGetASpreadAnalysisResult, ex.Message);
                 return;
             }
 
@@ -65,29 +66,29 @@ namespace Rinjani
             var targetVolume = result.TargetVolume;
             var targetProfit = result.TargetProfit;
 
-            Log.Info("{0,-17}: {1}", "Best ask", bestAsk);
-            Log.Info("{0,-17}: {1}", "Best bid", bestBid);
-            Log.Info("{0,-17}: {1}", "Spread", -invertedSpread);
-            Log.Info("{0,-17}: {1}", "Available volume", availableVolume);
-            Log.Info("{0,-17}: {1}", "Target volume", targetVolume);
-            Log.Info("{0,-17}: {1}", "Expected profit", targetProfit);
+            Log.Info("{0,-17}: {1}", Resources.BestAsk, bestAsk);
+            Log.Info("{0,-17}: {1}", Resources.BestBid, bestBid);
+            Log.Info("{0,-17}: {1}", Resources.Spread, -invertedSpread);
+            Log.Info("{0,-17}: {1}", Resources.AvailableVolume, availableVolume);
+            Log.Info("{0,-17}: {1}", Resources.TargetVolume, targetVolume);
+            Log.Info("{0,-17}: {1}", Resources.ExpectedProfit, targetProfit);
 
             if (invertedSpread <= 0)
             {
-                Log.Info("No arbitrage opportunity. Spread is not inverted.");
+                Log.Info(Resources.NoArbitrageOpportunitySpreadIsNotInverted);
                 return;
             }
 
-            Log.Info($"Found inverted quotes.");
+            Log.Info(Resources.FoundInvertedQuotes);
             if (availableVolume < config.MinSize)
             {
-                Log.Info($"Available volume is smaller than min size. ");
+                Log.Info(Resources.AvailableVolumeIsSmallerThanMinSize);
                 return;
             }
 
             if (targetProfit < config.MinTargetProfit)
             {
-                Log.Info($"Target profit is smaller than min profit.");
+                Log.Info(Resources.TargetProfitIsSmallerThanMinProfit);
                 return;
             }
 
@@ -99,17 +100,17 @@ namespace Rinjani
 
             if (config.DemoMode)
             {
-                Log.Info(">>This is Demo mode. Not sending orders.");
+                Log.Info(Resources.ThisIsDemoModeNotSendingOrders);
                 return;
             }
 
-            Log.Info($">>Found arbitrage oppotunity.");
-            Log.Info($">>Sending order targetting quote {bestAsk}...");
+            Log.Info(Resources.FoundArbitrageOppotunity);
+            Log.Info(Resources.SendingOrderTargettingQuote, bestAsk);
             SendOrder(bestAsk, targetVolume, OrderType.Limit);
-            Log.Info($">>Sending order targetting quote {bestBid}...");
+            Log.Info(Resources.SendingOrderTargettingQuote, bestBid);
             SendOrder(bestBid, targetVolume, OrderType.Limit);
             CheckOrderState();
-            Log.Info($"Sleeping {config.SleepAfterSend} after send.");
+            Log.Info(Resources.SleepingAfterSend, config.SleepAfterSend);
             _activeOrders.Clear();
             Sleep(config.SleepAfterSend);
         }
@@ -118,7 +119,7 @@ namespace Rinjani
         {
             if (Math.Abs(_positionService.NetExposure) > _configStore.Config.MaxNetExposure)
             {
-                var message = "Net exposure is larger than max net exposure.";
+                var message = Resources.NetExposureIsLargerThanMaxNetExposure;
                 throw new InvalidOperationException(message);
             }
         }
@@ -131,8 +132,8 @@ namespace Rinjani
             foreach (var i in Enumerable.Range(1, config.MaxRetryCount))
             {
                 Sleep(config.OrderStatusCheckInterval);
-                Log.Info($">>Order check attempt {i}.");
-                Log.Info(">>Checking if both legs are done or not...");
+                Log.Info(Resources.OrderCheckAttempt, i);
+                Log.Info(Resources.CheckingIfBothLegsAreDoneOrNot);
 
                 try
                 {
@@ -147,27 +148,27 @@ namespace Rinjani
 
                 if (buyOrder.Status != OrderStatus.Filled)
                 {
-                    Log.Warn($"Buy leg is not filled yet. Pending size is {buyOrder.PendingSize}.");
+                    Log.Warn(Resources.BuyLegIsNotFilledYetPendingSizeIs, sellOrder.PendingSize);
                 }
                 if (sellOrder.Status != OrderStatus.Filled)
                 {
-                    Log.Warn($"Sell leg is not filled yet. Pending size is {sellOrder.PendingSize}.");
+                    Log.Warn(Resources.SellLegIsNotFilledYetPendingSizeIs, sellOrder.PendingSize);
                 }
 
                 if (buyOrder.Status == OrderStatus.Filled && sellOrder.Status == OrderStatus.Filled)
                 {
                     var profit = Math.Round(sellOrder.FilledSize * sellOrder.AverageFilledPrice -
                                  buyOrder.FilledSize * buyOrder.AverageFilledPrice);
-                    Log.Info(">>Both legs are successfully filled.");
-                    Log.Info($">>Buy filled price is {buyOrder.AverageFilledPrice}.");
-                    Log.Info($">>Sell filled price is {sellOrder.AverageFilledPrice}.");
-                    Log.Info($">>Profit is {profit}.");
+                    Log.Info(Resources.BothLegsAreSuccessfullyFilled);
+                    Log.Info(Resources.BuyFillPriceIs, buyOrder.AverageFilledPrice);
+                    Log.Info(Resources.SellFillPriceIs, sellOrder.AverageFilledPrice);
+                    Log.Info(Resources.ProfitIs, profit);
                     break;
                 }
 
                 if (i == config.MaxRetryCount)
                 {
-                    Log.Warn("Max retry count reached. Cancelling the pending orders.");
+                    Log.Warn(Resources.MaxRetryCountReachedCancellingThePendingOrders);
                     if (buyOrder.Status != OrderStatus.Filled)
                     {
                         _brokerAdapterRouter.Cancel(buyOrder);
