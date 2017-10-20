@@ -154,9 +154,7 @@
     <None Include="config.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="config_default.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <None Include="config_default.json" />
     <None Include="NLog.xsd">
       <SubType>Designer</SubType>
     </None>
