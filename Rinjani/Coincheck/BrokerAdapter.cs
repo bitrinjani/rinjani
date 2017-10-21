@@ -283,20 +283,49 @@ namespace Rinjani.Coincheck
 
         private IList<LeveragePosition> GetLeverageOpenPositions()
         {
-            var path = "/api/exchange/leverage/positions?status=open&limit=25";
-            var req = BuildRequest(path);
-            var reply = RestUtil.ExecuteRequest<LeveragePositionReply>(_restClient, req);
-            if (reply.data.Count > 25)
+            var result = new List<LeveragePosition>();
+            var status = "open";
+            var limit = 20;
+            var order = "desc";
+            var reply = GetLeveragePositions(status, limit, order);
+            while (true)
             {
-                throw new InvalidOperationException("Paging handling not implemented.");
+                var positionsPartial = reply.data.Select(record => new LeveragePosition
+                {
+                    Id = record.id,
+                    Side = Util.ParseEnum<OrderSide>(record.side),
+                    Size = record.amount
+                }).ToList();
+                result.AddRange(positionsPartial);
+                if (positionsPartial.Count < limit)
+                {
+                    break;
+                }
+                var lastId = reply.data.Last().id;
+                reply = GetLeveragePositions(status, limit, order, lastId);
             }
-            var leveragePositions = reply.data.Select(record => new LeveragePosition
+            return result;
+        }
+
+        private LeveragePositionReply GetLeveragePositions(
+            string status,
+            int limit,
+            string order = "desc",
+            string after = null,
+            string before = null)
+        {
+            var path = $"/api/exchange/leverage/positions?status={status}&limit={limit}";
+            if (after != null)
             {
-                Id = record.id,
-                Side = Util.ParseEnum<OrderSide>(record.side),
-                Size = record.amount
-            }).ToList();
-            return leveragePositions;
+                path += $"&starting_after={after}";
+            }
+
+            if (before != null)
+            {
+                path += $"&ending_before={before}";
+            }
+            var req = BuildRequest(path);
+            return RestUtil.ExecuteRequest<LeveragePositionReply>(_restClient, req);
         }
 
         private BalanceReply GetBalance()

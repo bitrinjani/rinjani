@@ -185,5 +185,17 @@ namespace Rinjani.Tests
             var btcPosition = ba.GetBtcPosition();
             Debug.WriteLine($"{broker} {brokerConfig.CashMarginType}: {btcPosition}");
         }
+
+        [TestMethod]
+        //[Ignore]
+        public void CoincheckGetBtcPositionTest2()
+        {
+            var broker = Broker.Coincheck;
+            var configStore = new JsonConfigStore(ConfigPath, new List<IConfigValidator>());
+            var brokerConfig = configStore.Config.Brokers.First(x => x.Broker == broker);
+            var ba = new Coincheck.BrokerAdapter(new RestClient(), configStore);
+            var btcPosition = ba.GetBtcPosition();
+            Debug.WriteLine($"{broker}: {btcPosition}");
+        }
     }
 }
