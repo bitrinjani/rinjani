@@ -1,5 +1,7 @@
 [日本語はこちら](http://qiita.com/bitrinjani/items/3ed756da9baf7d171306)
 
+ℹ️ This project was ported from C# to Node.js to support non-Windows environment. For Mac OS and Linux users, please visit https://github.com/bitrinjani/r2.
+
 # Rinjani Bitcoin Arbitrager
 
 Rinjani Bitcoin Arbitrager is a Proof-Of-Concept prototype of an automatic arbitrage trading system targeting Bitcoin exchanges operated in Japan.
