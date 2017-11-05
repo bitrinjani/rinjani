@@ -1,6 +1,6 @@
 [日本語はこちら](http://qiita.com/bitrinjani/items/3ed756da9baf7d171306)
 
-ℹ️ This project has been ported to Node.js to support non-Windows environment. For Mac OS and Linux users, please visit https://github.com/bitrinjani/r2.
+ℹ️ A newer version is available in https://github.com/bitrinjani/r2. This project has been ported to Node.js to support non-Windows environment.
 
 # Rinjani Bitcoin Arbitrager
 
